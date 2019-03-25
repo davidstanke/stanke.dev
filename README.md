@@ -1,3 +1,15 @@
 # stanke.dev
 
-version 1: this is simply static assets; deployment is copying these bits to the web root of a host
+Firebase deploy:
+0. enable KMS
+1. get a token: `firebase login:ci`
+2. encrypt it:
+```
+echo -n $TOKEN | gcloud kms encrypt \
+  --plaintext-file=- \
+  --ciphertext-file=- \
+  --location=global \
+  --keyring=stanke-dev \
+  --key=firebase | base64
+```
+3. paste encrypted token into cloudbuild.yaml
