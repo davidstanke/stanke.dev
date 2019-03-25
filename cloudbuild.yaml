@@ -1,15 +1,15 @@
-steps:
-- name: 'gcr.io/$PROJECT_ID/firebase'
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - | 
-    firebase deploy --project=$PROJECT_ID --only=hosting --token=$$FIREBASE_TOKEN
-  secretEnv: ['FIREBASE_TOKEN']
-
-secrets:
-- kmsKeyName: projects/stanke-dev/locations/global/keyRings/stanke-dev/cryptoKeys/firebase
-  secretEnv:
-    FIREBASE_TOKEN: 'CiQAHwp0p6VnEGfZAWtFvSBNdAlNOb7PpZ95zR3wd/Cn0EWoR2ESVgBc5WTzAjDdYP/cqy5TkvX+
-GcnhODNNxz8jhGAW4cGrL/FVR16O8ieUEot7U0DC0HUXiR4GbK0YTL3rXCn8aTXT4N0mhNajXvQC
-6VmFX8e6UkwHEsUc'
+--- 
+secrets: 
+  - 
+    kmsKeyName: projects/stanke-dev/locations/global/keyRings/stanke-dev/cryptoKeys/firebase
+    secretEnv: 
+      FIREBASE_TOKEN: "CiQAHwp0p6VnEGfZAWtFvSBNdAlNOb7PpZ95zR3wd/Cn0EWoR2ESVgBc5WTzAjDdYP/cqy5TkvX+ GcnhODNNxz8jhGAW4cGrL/FVR16O8ieUEot7U0DC0HUXiR4GbK0YTL3rXCn8aTXT4N0mhNajXvQC 6VmFX8e6UkwHEsUc"
+steps: 
+  - 
+    args: 
+      - "-c"
+      - "firebase deploy --project=$PROJECT_ID --only=hosting --token=$$FIREBASE_TOKEN\n"
+    entrypoint: bash
+    name: gcr.io/$PROJECT_ID/firebase
+    secretEnv: 
+      - FIREBASE_TOKEN
