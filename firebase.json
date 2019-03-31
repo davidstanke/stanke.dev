@@ -6,5 +6,12 @@
       "**/.*",
       "**/node_modules/**"
     ]
+  },
+  {
+    "redirects":[ {
+      "source": "/ops",
+      "destination": "https://medium.com/doing-devops/my-definition-of-devops-6a2aee5231ba",
+      "type": 302
+    }]
   }
 }
