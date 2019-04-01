@@ -1,6 +1,7 @@
 # stanke.dev
 
 Firebase deploy:
+
 0. enable KMS
 1. get a token: `firebase login:ci`
 2. encrypt it:
