@@ -1,4 +1,3 @@
---- 
 secrets: 
   - 
     kmsKeyName: projects/stanke-dev/locations/global/keyRings/stanke-dev/cryptoKeys/firebase
