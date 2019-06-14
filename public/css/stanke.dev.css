@@ -40,6 +40,10 @@ p {
     width:20vw;
  }
 
+#twitter {
+    width:40px;
+}
+
  @media screen and (min-width: 800px) {
     h1 {
        font-size: 160px;
