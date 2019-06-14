@@ -37,5 +37,14 @@ p {
 }
 
 #dave-thumb {
-    width:16vw;
+    width:20vw;
  }
+
+ @media screen and (min-width: 800px) {
+    h1 {
+       font-size: 160px;
+    }
+    #dave-thumb {
+        width: 160px;
+    }
+  }
