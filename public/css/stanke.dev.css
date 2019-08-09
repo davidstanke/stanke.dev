@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Rokkitt&display=swap');
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
 
 html {
-    font-family: 'Lato', sans-serif;
     color:#3b4045;
     background-color:#fcfcfc;
 }
@@ -12,10 +15,6 @@ body {
 
 a {
     color:#2d6d9f;
-}
-
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'Rokkitt',sans-serif;
 }
 
 h1 {
