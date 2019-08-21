@@ -1,0 +1,61 @@
+baseurl = "https://stanke.dev"
+title = "Dave Stanke"
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+paginate = 20
+canonifyurls = true
+
+pygmentsstyle = "bw"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+# disqusShortname = "yourdiscussshortname"
+
+[params]
+    author = "Dave Stanke"
+    info = "[TODO]"
+    description = "[TODO]"
+    keywords = "[TODO]"
+    avatarurl = "https://s.gravatar.com/avatar/07ff350ffa93e4e69f3e7f0e5795befb?s=80"
+
+    favicon_32 = "/img/favicon-32x32.png"
+    favicon_16 = "/img/favicon-16x16.png"
+
+    #footercontent = "Enter a text here."
+
+    hidecredits = true
+    hidecopyright = true
+
+    rtl = false
+
+    math = true
+    custom_css = ["css/custom.css"]
+
+# Social links
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github fa-2x"
+    weight = 1
+    url = "https://github.com/davidstanke/"
+# [[params.social]]
+#     name = "Gitlab"
+#     icon = "fab fa-gitlab fa-2x"
+#     weight = 2
+#     url = "https://gitlab.com/johndoe/"
+[[params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter fa-2x"
+    weight = 3
+    url = "https://twitter.com/davidstanke/"
+
+# Menu links
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/posts/"
+[[menu.main]]
+    name = "About"
+    weight = 2
+    url = "/about/"
