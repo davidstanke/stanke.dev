@@ -13,6 +13,23 @@
           </li>
         {{ end }}
       {{ end }}
+
+      {{ with .Site.Params.social }}
+        {{ range sort .}}
+          {{ if .icon }}
+            <li class="navigation-item">
+              <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }}>
+                <i class="{{ .icon }}" aria-hidden="true"></i>
+              </a>
+            </li>
+          {{ else }}
+          <li class="navigation-item">
+              <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }}>{{ .name }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
       {{ if .Site.IsMultiLingual }}
         {{ $node := . }}
         {{ .Scratch.Set "separator" true }}
