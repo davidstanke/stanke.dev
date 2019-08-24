@@ -3,4 +3,6 @@ title: "Stanke.dev"
 draft: false
 ---
 
-I am /context/_index.md
+My name is Dave Stanke, and I'm a Developer Advocate at Google.
+
+I do [DevOps](https://cloud.google.com/devops/).
