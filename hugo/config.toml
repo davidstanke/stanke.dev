@@ -14,8 +14,9 @@ pygmentscodefencesguesssyntax = true
 # disqusShortname = "yourdiscussshortname"
 
 [params]
+    greeting = "Hello."
     author = "Dave Stanke"
-    info = "[TODO]"
+    info = "My name is Dave. I'm a Developer Advocate with Google Cloud Platform. I do DevOps."
     description = "[TODO]"
     keywords = "[TODO]"
     avatarurl = "https://s.gravatar.com/avatar/07ff350ffa93e4e69f3e7f0e5795befb?s=80"
@@ -52,10 +53,14 @@ pygmentscodefencesguesssyntax = true
 
 # Menu links
 [[menu.main]]
-    name = "Blog"
+    name = "Bio"
     weight = 1
-    url  = "/posts/"
+    url  = "/bio/"
 [[menu.main]]
-    name = "About"
+    name = "Talks"
     weight = 2
-    url = "/about/"
+    url = "/talks/"
+[[menu.main]]
+    name = "Writing"
+    weight = 3
+    url = "/writing/"

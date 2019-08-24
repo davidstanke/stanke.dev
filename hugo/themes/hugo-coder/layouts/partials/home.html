@@ -3,7 +3,7 @@
     {{ with .Site.Params.avatarurl }}
       <div class="avatar"><img src="{{ . | relURL }}" alt="avatar"></div>
     {{ end }}
-    <h1>{{ .Site.Params.author }}</h1>
+    <h1 class="greeting">{{ .Site.Params.greeting }}</h1>
     <h2>{{ .Site.Params.info }}</h2>
   </div>
 </section>

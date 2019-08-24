@@ -1,0 +1,22 @@
+@import url('https://rsms.me/inter/inter.css');
+
+h1.greeting {font-weight:600; font-size:6rem}
+
+a.navigation-title {
+    font-weight:500;
+}
+
+.navigation-list {
+    display:table;
+}
+
+.navigation-item a {
+    display:table-cell;
+    vertical-align:middle;
+    padding: 0 1rem 0 1rem;
+}
+
+.fab {
+    line-height:inherit;
+    font-size:2.5rem;
+}
