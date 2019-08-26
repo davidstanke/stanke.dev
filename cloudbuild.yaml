@@ -7,11 +7,11 @@ secrets:
       fpKaftNI53i7Vm8t4+mB4UCJR68+p0s7DYBE1YAq3VDKz2oPGFGLNR3Mkfakxux\
       ryms47Eny4WDUvmA1HymmOkj/5VdnWxuLf6OW6mxiQ"
 steps: 
-  - name: gcr.io/$PROJECT_ID/hugo
+  - name: gohugoio/hugo
     args: [
       "version"
       ]
-  - name: gcr.io/$PROJECT_ID/hugo
+  - name: gohugoio/hugo
     args: [
       "-s","hugo",
       "-d","../public"
