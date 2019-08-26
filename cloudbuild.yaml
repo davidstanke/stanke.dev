@@ -10,7 +10,7 @@ steps:
   - name: gcr.io/$PROJECT_ID/hugo
     args: [
       "-s","hugo",
-      "-d","/workspace/public"
+      "-d","../public"
       ]
   - name: gcr.io/$PROJECT_ID/firebase
     args: 
