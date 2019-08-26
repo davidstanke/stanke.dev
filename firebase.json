@@ -3,7 +3,6 @@
     "public": "/workspace/public",
     "ignore": [
       "firebase.json",
-      "**/.*",
       "**/node_modules/**"
     ],
     "redirects":[ {
