@@ -1,0 +1,66 @@
+baseurl = "https://stanke.dev"
+title = "Dave Stanke"
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+paginate = 20
+canonifyurls = true
+
+pygmentsstyle = "bw"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+# disqusShortname = "yourdiscussshortname"
+
+[params]
+    greeting = "Hello."
+    author = "Dave Stanke"
+    info = "My name is Dave. I'm a Developer Advocate with Google Cloud Platform. I do DevOps."
+    description = "[TODO]"
+    keywords = "[TODO]"
+    avatarurl = "img/dave-thumb.png"
+
+    favicon_32 = "/img/favicon-32x32.png"
+    favicon_16 = "/img/favicon-16x16.png"
+
+    #footercontent = "Enter a text here."
+
+    hidecredits = true
+    hidecopyright = true
+
+    rtl = false
+
+    math = true
+    custom_css = ["css/custom.css"]
+
+# Social links
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github fa-2x"
+    weight = 1
+    url = "https://github.com/davidstanke/"
+# [[params.social]]
+#     name = "Gitlab"
+#     icon = "fab fa-gitlab fa-2x"
+#     weight = 2
+#     url = "https://gitlab.com/johndoe/"
+[[params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter fa-2x"
+    weight = 3
+    url = "https://twitter.com/davidstanke/"
+
+# Menu links
+[[menu.main]]
+    name = "Bio"
+    weight = 1
+    url  = "/bio/"
+[[menu.main]]
+    name = "Talks"
+    weight = 2
+    url = "/talks/"
+[[menu.main]]
+    name = "Writing"
+    weight = 3
+    url = "https://medium.com/@davidstanke"
