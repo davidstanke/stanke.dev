@@ -4,6 +4,7 @@ h1.greeting {
     font-weight:700;
     font-size:9rem;
     padding-bottom:2rem;
+    padding-left:2rem;
 }
 
 a.navigation-title {
@@ -23,4 +24,13 @@ a.navigation-title {
 .fab {
     line-height:inherit;
     font-size:2.5rem;
+}
+
+.container.centered.homepage {
+    align-items:flex-start;
+}
+
+.avatar {
+    margin-top:12rem;
+    margin-bottom:6rem;
 }
