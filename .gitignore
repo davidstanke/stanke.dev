@@ -62,3 +62,7 @@ typings/
 
 # macOS mishegas
 .DS_Store
+
+# ignore generated hugo files
+public/*
+/hugo/public/*
