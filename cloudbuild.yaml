@@ -1,22 +1,21 @@
-# secrets: 
-#   - 
-#     kmsKeyName: projects/stanke-dev/locations/global/keyRings/stanke-dev/cryptoKeys/firebase
-#     secretEnv: 
-#       FIREBASE_TOKEN: "\
-#       CiQAHwp0p2sJGymNgyouoYpBNhf8aRae7RMhD0iPAkzWFQWu2x4SVgBc5WTz0W2\
-#       fpKaftNI53i7Vm8t4+mB4UCJR68+p0s7DYBE1YAq3VDKz2oPGFGLNR3Mkfakxux\
-#       ryms47Eny4WDUvmA1HymmOkj/5VdnWxuLf6OW6mxiQ"
+secrets: 
+  - 
+    kmsKeyName: projects/stanke-dev/locations/global/keyRings/stanke-dev/cryptoKeys/firebase
+    secretEnv: 
+      FIREBASE_TOKEN: "\
+      CiQAHwp0p2sJGymNgyouoYpBNhf8aRae7RMhD0iPAkzWFQWu2x4SVgBc5WTz0W2\
+      fpKaftNI53i7Vm8t4+mB4UCJR68+p0s7DYBE1YAq3VDKz2oPGFGLNR3Mkfakxux\
+      ryms47Eny4WDUvmA1HymmOkj/5VdnWxuLf6OW6mxiQ"
 steps: 
-  - name: gcr.io/cloud-builders/go
-    args:
+  - name: gcr.io/$PROJECT_ID/hugo
+    args: [
+      "-s","hugo",
+      "-d","../public"
+      ]
+  - name: gcr.io/$PROJECT_ID/firebase
+    args: 
       - "-c"
-      - |
-        go get hugo &&
-        hugo -s hugo -d ../public
-  # - name: gcr.io/$PROJECT_ID/firebase
-  #   args: 
-  #     - "-c"
-  #     - "firebase deploy --project=$PROJECT_ID --only=hosting --token=$$FIREBASE_TOKEN\n"
-  #   entrypoint: bash
-  #   secretEnv: 
-  #     - FIREBASE_TOKEN
+      - "firebase deploy --project=$PROJECT_ID --only=hosting --token=$$FIREBASE_TOKEN\n"
+    entrypoint: bash
+    secretEnv: 
+      - FIREBASE_TOKEN
