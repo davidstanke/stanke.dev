@@ -15,6 +15,7 @@ steps:
   - name: gcr.io/$PROJECT_ID/firebase
     args: 
       - "-c"
+      - "ls /workspace"
       - "firebase deploy --project=$PROJECT_ID --only=hosting --token=$$FIREBASE_TOKEN\n"
     entrypoint: bash
     secretEnv: 
