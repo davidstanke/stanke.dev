@@ -1,6 +1,11 @@
 # stanke.dev
 
-Firebase deploy:
+## this is a site generator using Hugo. To build:
+```
+hugo -s hugo -d ../public
+```
+
+## To deploy to Firebase:
 
 0. enable KMS
 1. get a token: `firebase login:ci`
