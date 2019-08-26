@@ -8,25 +8,26 @@
     <ul class="navigation-list">
       {{ with .Site.Menus.main}}
         {{ range sort . }}
+          {{/* see https://gist.github.com/dudil/edf2b1838c7cc5f1131a3777dbc662a9.html */}}
+          {{ $url := urls.Parse .URL }}
+          {{ $baseurl := urls.Parse $.Site.Params.Baseurl }}
           <li class="navigation-item">
-            <a class="navigation-link" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+            <a class="navigation-link" href="{{ .URL | absLangURL }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
           </li>
         {{ end }}
       {{ end }}
 
       {{ with .Site.Params.social }}
         {{ range sort .}}
-          {{ if .icon }}
-            <li class="navigation-item">
-              <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }}>
-                <i class="{{ .icon }}" aria-hidden="true"></i>
+          <li class="navigation-item">
+              <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} target="_blank">
+                  {{ if .icon }}
+                    <i class="{{ .icon }}" aria-hidden="true"></i>
+                  {{ else }}
+                    {{ .name }}
+                  {{ end }}
               </a>
             </li>
-          {{ else }}
-          <li class="navigation-item">
-              <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }}>{{ .name }}</a>
-            </li>
-          {{ end }}
         {{ end }}
       {{ end }}
 
