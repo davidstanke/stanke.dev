@@ -16,7 +16,7 @@ pygmentscodefencesguesssyntax = true
     greeting = "Hello."
     author = "Dave Stanke"
     info = "My name is Dave. I'm a Developer Advocate with Google Cloud Platform. I do DevOps."
-    description = "[TODO]"
+    description = "David (Dave) Stanke is a Developer Advocate with Google Cloud Platform (GCP). His focus is working with the DevOps community, with particular emphasis on Continuous Integration and Continuous Delivery (CI/CD)."
     keywords = "[TODO]"
     avatarurl = "img/dave-thumb.png"
 
