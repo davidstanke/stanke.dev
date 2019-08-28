@@ -1,4 +1,3 @@
-baseurl = "https://stanke.dev"
 title = "Dave Stanke"
 theme = "hugo-coder"
 languagecode = "en"

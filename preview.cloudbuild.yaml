@@ -1,0 +1,23 @@
+steps:
+  - name: gcr.io/$PROJECT_ID/hugo
+    args: [
+      "-s","hugo",
+      "-d","../public"
+      ]
+
+  # create a docker container that can run on cloud run
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "tools/preview_container/Dockerfile", "-t", "gcr.io/$PROJECT_ID/site-preview:$SHORT_SHA", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push","gcr.io/$PROJECT_ID/site-preview:$SHORT_SHA"]
+
+  # deploy to Cloud Run
+  - name: gcr.io/cloud-builders/gcloud
+    args: [
+      "beta","run","deploy",
+      "stanke-dev-preview-$SHORT_SHA",
+      "--image=gcr.io/stanke-dev/site-preview:$SHORT_SHA",
+      "--platform=managed",
+      "--region=us-central1",
+      "--allow-unauthenticated",
+    ]
