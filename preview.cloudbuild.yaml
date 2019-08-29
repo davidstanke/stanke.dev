@@ -13,11 +13,39 @@ steps:
 
   # deploy to Cloud Run
   - name: gcr.io/cloud-builders/gcloud
-    args: [
-      "beta","run","deploy",
-      "stanke-dev-preview-$SHORT_SHA",
-      "--image=gcr.io/stanke-dev/site-preview:$SHORT_SHA",
-      "--platform=managed",
-      "--region=us-central1",
-      "--allow-unauthenticated",
-    ]
+    entrypoint: bash
+    args: 
+      - "-c"
+      - |
+        gcloud beta run deploy stanke-dev-preview-$SHORT_SHA --image=gcr.io/stanke-dev/site-preview:$SHORT_SHA --platform=managed --region=us-central1 --allow-unauthenticated
+        echo $(gcloud beta run services describe stanke-dev-preview-$SHORT_SHA --platform=managed --region=us-central1 --format="value(status.address.url)") > /workspace/url.txt
+
+  # add preview URL as a comment on Pull Request
+  - name: gcr.io/cloud-builders/curl
+    entrypoint: bash
+    args: 
+      - "-c"
+      - |
+        # dermine pull request ID that triggered this build
+        # (feature request: make PR ID available as a substitution)
+        # TODO: bake jq install into a builder
+        apt-get update -y && apt-get install jq -y && \ 
+        export PULLREQUEST_ID=$(curl "https://api.github.com/search/issues?q=$COMMIT_SHA&type:pr" | jq ".items[0].number") && \
+        
+        echo "{\"body\": \"Preview this revision: $(cat /workspace/url.txt)\"}" > /workspace/api_payload.txt && \
+
+        cat /workspace/api_payload.txt && \
+
+        # post the comment
+        curl -s -H "Authorization: token $$GITHUB_TOKEN" -X POST -d @/workspace/api_payload.txt "https://api.github.com/repos/davidstanke/stanke.dev/issues/$$PULLREQUEST_ID/comments"
+
+    secretEnv: 
+      - GITHUB_TOKEN
+
+secrets:
+  - kmsKeyName: projects/stanke-dev/locations/global/keyRings/stanke-dev/cryptoKeys/github-access-token
+    secretEnv: 
+      GITHUB_TOKEN: "\
+      CiQApWZD3glqQqWrQokId3TuRrWfBMPTtu/B1ccsr+VKlAvFJGQSUQBLWP5TLHS\
+      hG81/eGy20mkRBMYv/HBBlrAl+hCInE4UMXDerAFDBAUlV4gvt/32Idi1spAk/T8\
+      PW8nsu8q946j7+9sP5mJo7ZBTauLmKYLLeg=="
