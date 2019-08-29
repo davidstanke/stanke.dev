@@ -66,3 +66,6 @@ typings/
 # ignore generated hugo files
 public/*
 /hugo/public/*
+
+# ignore firebase working dir
+.firebase/*
