@@ -27,3 +27,7 @@ echo -n $TOKEN | gcloud kms encrypt \
 * Build and push two builders to GCR:
   * github.com/GoogleCloudPlatform/cloud-builders-community/firebase
   * /tools/hugo-builder
+  
+  
+## TODOs
+* eliminate the on-the-fly install of jq
