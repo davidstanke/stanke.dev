@@ -26,14 +26,8 @@ steps:
     args: 
       - "-c"
       - |
-        # dermine pull request ID that triggered this build
-        apt-get update -y && apt-get install jq -y && \ 
-        export PULLREQUEST_ID=$(curl "https://api.github.com/search/issues?q=$COMMIT_SHA&type:pr" | jq ".items[0].number") && \
-        
         echo "{\"body\": \"Preview this revision: $(cat /workspace/url.txt)\"}" > /workspace/api_payload.txt && \
-
-        # post the comment
-        curl -s -H "Authorization: token $$GITHUB_TOKEN" -X POST -d @/workspace/api_payload.txt "https://api.github.com/repos/davidstanke/stanke.dev/issues/$$PULLREQUEST_ID/comments"
+        curl -s -H "Authorization: token $$GITHUB_TOKEN" -X POST -d @/workspace/api_payload.txt "https://api.github.com/repos/davidstanke/stanke.dev/issues/$_PR_NUMBER/comments"
 
     secretEnv: 
       - GITHUB_TOKEN
