@@ -13,6 +13,7 @@ hugo -s hugo -d ../public
 1. get a token: `firebase login:ci`
 2. encrypt it:
 ```
+export TOKEN=<<YOUR_FIREBASE_TOKEN>>
 echo -n $TOKEN | gcloud kms encrypt \
   --plaintext-file=- \
   --ciphertext-file=- \
