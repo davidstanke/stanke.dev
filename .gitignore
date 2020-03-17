@@ -69,3 +69,6 @@ public/*
 
 # ignore firebase working dir
 .firebase/*
+
+# ignore tmp directory
+/tmp
