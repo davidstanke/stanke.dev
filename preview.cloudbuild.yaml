@@ -26,7 +26,7 @@ steps:
           "$_PR_NUMBER",
           "davidstanke/stanke.dev",
           "this is my comment!",
-          "$GITHUB_TOKEN" 
+          "$$GITHUB_TOKEN" 
         ]
         secretEnv: 
           - GITHUB_TOKEN  
