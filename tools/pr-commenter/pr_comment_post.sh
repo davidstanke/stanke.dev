@@ -11,8 +11,9 @@ set -eEou pipefail
 
 PR_NUMBER=$1
 REPO=$2
-ACCESS_TOKEN=$3
-COMMENT=$4
+COMMENT=$3
+ACCESS_TOKEN=$4
+
 
 PAYLOAD="{\"body\":\"$COMMENT\"}"
 PR_URL="https://api.github.com/repos/$REPO/issues/$PR_NUMBER/comments"
