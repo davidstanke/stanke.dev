@@ -20,17 +20,28 @@ steps:
         gcloud beta run deploy stanke-dev-preview-$SHORT_SHA --image=gcr.io/stanke-dev/site-preview:$SHORT_SHA --platform=managed --region=us-central1 --allow-unauthenticated
         echo $(gcloud beta run services describe stanke-dev-preview-$SHORT_SHA --platform=managed --region=us-central1 --format="value(status.address.url)") > /workspace/url.txt
 
-  # add preview URL as a comment on Pull Request
+  # demonstrate the pr-commenter
   - name: gcr.io/$PROJECT_ID/pr-commenter
     args: [
       "davidstanke/stanke.dev",
       "$_PR_NUMBER",
-      "This is a static comment to demonstrate simple invocation of the  builder."
+      "This is a static comment to demonstrate simple invocation of the builder."
     ]
     secretEnv: 
       - GITHUB_TOKEN
 
-  - name: gcr.io/$PROJECT_ID/
+  # add preview URL as a comment on Pull Request    
+  - name: gcr.io/$PROJECT_ID/pr-commenter
+    entrypoint: bash
+    args: [
+      '-c', # execute the following in a bash shell
+      '/bin/pr_comment_post.sh davidstanke/stanke.dev $_PR_NUMBER "Preview this revision: $(cat /workspace/url.txt)"'
+    ]
+
+
+    secretEnv:
+      - GITHUB_TOKEN
+      
 
   # # add preview URL as a comment on Pull Request
   # - name: gcr.io/cloud-builders/curl
