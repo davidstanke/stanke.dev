@@ -12,7 +12,7 @@ gcloud builds submit
 steps:
 - name: gcr.io/$PROJECT_ID/pr-commenter
   args: [
-      "18",
+      "123",
       "myorganization/myrepo",
       "this is my comment!",
       "$GITHUB_TOKEN"
