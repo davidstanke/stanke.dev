@@ -24,7 +24,7 @@ steps:
   - name: gcr.io/$PROJECT_ID/pr-commenter
     args: [
       "$_PR_NUMBER",
-      "$REPO_NAME",
+      "davidstanke/stanke.dev",
       "This is a static comment to demonstrate the builder."
     ]
     secretEnv: 
