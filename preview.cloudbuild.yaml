@@ -25,7 +25,7 @@ steps:
     args: [
       "$_PR_NUMBER",
       "davidstanke/stanke.dev",
-      "this is my comment!"
+      "Preview this revision: $(cat /workspace/url.txt)"
     ]
     secretEnv: 
       - GITHUB_TOKEN  
