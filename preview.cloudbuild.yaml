@@ -34,13 +34,13 @@ steps:
   - name: gcr.io/$PROJECT_ID/pr-commenter
     entrypoint: bash
     args:
-      - '-c', # execute the following in a bash shell
+      - '-c' # execute the following in a bash shell
       - |-
         /bin/pr_comment_post.sh \
         davidstanke/stanke.dev \
         $_PR_NUMBER \
         "Preview this revision: $(cat /workspace/url.txt)"
-        
+
     secretEnv:
       - GITHUB_TOKEN
       
