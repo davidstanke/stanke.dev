@@ -25,10 +25,12 @@ steps:
     args: [
       "$_PR_NUMBER",
       "davidstanke/stanke.dev",
-      "Preview this revision: $(cat /workspace/url.txt)"
+      "This is a static comment to demonstrate the builder."
     ]
     secretEnv: 
-      - GITHUB_TOKEN  
+      - GITHUB_TOKEN
+
+  - name: gcr.io/$PROJECT_ID/
 
   # # add preview URL as a comment on Pull Request
   # - name: gcr.io/cloud-builders/curl
