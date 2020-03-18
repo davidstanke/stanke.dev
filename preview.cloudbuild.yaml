@@ -25,8 +25,7 @@ steps:
     args: [
       "$_PR_NUMBER",
       "davidstanke/stanke.dev",
-      "this is my comment!",
-      "$$GITHUB_TOKEN" 
+      "this is my comment!"
     ]
     secretEnv: 
       - GITHUB_TOKEN  
