@@ -23,9 +23,9 @@ steps:
   # add preview URL as a comment on Pull Request
   - name: gcr.io/$PROJECT_ID/pr-commenter
     args: [
-      "$_PR_NUMBER",
       "davidstanke/stanke.dev",
-      "This is a static comment to demonstrate the builder."
+      "$_PR_NUMBER",
+      "This is a static comment to demonstrate simple invocation of the  builder."
     ]
     secretEnv: 
       - GITHUB_TOKEN

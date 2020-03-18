@@ -12,12 +12,12 @@ if [ -z "$GITHUB_TOKEN" ]; then
 fi
 
 # parameters:
-# $1: the number of the PR to post to
-# $2: the repo (as org/repo) containing the PR
+# $1: the repo (as org/repo) containing the PR
+# $2: the number of the PR to post to
 # $3: the GitHub access token for an account with PR comment permissions
 
-PR_NUMBER=$1
-REPO=$2
+REPO=$1
+PR_NUMBER=$2
 COMMENT=$3
 
 PAYLOAD="{\"body\":\"$COMMENT\"}"
