@@ -2,7 +2,7 @@
 
 This container posts comments to GitHub.com Pull Requests. To use it in a Cloud Build pipeline:
 
-1. One-time setup:
+1. One-time setup -- run from the "pr-commenter" directory:
 ```
 gcloud builds submit
 ```

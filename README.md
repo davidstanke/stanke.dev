@@ -24,9 +24,10 @@ echo -n <<YOUR_FIREBASE_TOKEN>> | gcloud kms encrypt \
 
 ## To build in Cloud Build
 ### Prerequisites
-* Build and push two builders to GCR:
+* Build and push three builders to GCR:
   * github.com/GoogleCloudPlatform/cloud-builders-community/firebase
   * /tools/hugo-builder
+  * /tools/pr-commenter
   
   
 ## TODOs
