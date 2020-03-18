@@ -14,12 +14,9 @@ REPO=$2
 ACCESS_TOKEN=$3
 COMMENT=$4
 
-echo "PR number: $PR_NUMBER"
-echo "Repo: $REPO"
-echo "Access token: $ACCESS_TOKEN"
-echo "Comment: $COMMENT"
-
 PAYLOAD="{\"body\":\"$COMMENT\"}"
 PR_URL="https://api.github.com/repos/$REPO/issues/$PR_NUMBER/comments"
 
-curl -s -H "Authorization: token $ACCESS_TOKEN" -X POST -d $PAYLOAD $PR_URL
+echo "posting $PAYLOAD to $PR_URL..."
+
+curl -s -H "Authorization: token $ACCESS_TOKEN" -X POST -d "$PAYLOAD" $PR_URL
