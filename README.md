@@ -2,8 +2,8 @@
 
 ## this is a site generator using Hugo. 
 It demonstrates a very simple CI/CD flow, using a "gitops light" delivery proccess.
-  * When a pull request is opened, a Cloud Build trigger creates a dedicated preview environment in Cloud Run. The unique URL to that environment is posted to the PR as a status check _(credit to [glasnt](https://github.com/glasnt))_
-  * When the PR is merged, a different Cloud Build trigger deploys from `main` to the production Cloud Run service, which is mapped to [stanke.dev](https://stanke.dev)
+  * **When a pull request is opened**, a Cloud Build trigger creates a dedicated preview environment in Cloud Run. The unique URL to that environment is posted to the PR as a status check _(credit to [glasnt](https://github.com/glasnt))_
+  * **When the PR is merged**, a different Cloud Build trigger deploys from `main` to the production Cloud Run service, which is mapped to [stanke.dev](https://stanke.dev)
 
 ### To generate the site locally (requires [hugo](gohugo.io)):
 ```
