@@ -1,25 +1,27 @@
-secrets: 
-  - 
-    kmsKeyName: projects/stanke-dev/locations/global/keyRings/stanke-dev/cryptoKeys/firebase
-    secretEnv: 
-      FIREBASE_TOKEN: "\
-      CiQAHwp0p2sJGymNgyouoYpBNhf8aRae7RMhD0iPAkzWFQWu2x4SVgBc5WTz0W2\
-      fpKaftNI53i7Vm8t4+mB4UCJR68+p0s7DYBE1YAq3VDKz2oPGFGLNR3Mkfakxux\
-      ryms47Eny4WDUvmA1HymmOkj/5VdnWxuLf6OW6mxiQ"
 steps: 
-  - name: gcr.io/$PROJECT_ID/hugo
-    args: [
-      "version"
-      ]
   - name: gcr.io/$PROJECT_ID/hugo
     args: [
       "-s","hugo",
       "-d","../public"
       ]
-  - name: gcr.io/$PROJECT_ID/firebase
-    args: 
-      - "-c"
-      - "firebase deploy --project=$PROJECT_ID --only=hosting --token=$$FIREBASE_TOKEN\n"
-    entrypoint: bash
-    secretEnv: 
-      - FIREBASE_TOKEN
+
+ # create a docker container that can run on cloud run
+ # TODO: skip this step if container already exists
+ # (which it *should*, because it should have been built as part of CI for PRs,
+ # but if an admin skips PR, then it will need to be built fresh)
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "tools/preview_container/Dockerfile", "-t", "gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push","gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA"]
+
+  # deploy to Cloud Run
+  - name: gcr.io/cloud-builders/gcloud@sha256:3971d22114ad25262ee04e9161020c5145cc8eb65f710f3cc22d0f4b47a78984
+    entrypoint: gcloud
+    args: [
+    'run', 'deploy', 'stanke-dev-new', 
+    '--image', 'gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA', 
+    '--region', 'us-central1',
+    '--platform', 'managed',
+    '--allow-unauthenticated',
+    '--quiet'
+    ]

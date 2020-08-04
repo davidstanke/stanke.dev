@@ -7,60 +7,33 @@ steps:
 
   # create a docker container that can run on cloud run
   - name: gcr.io/cloud-builders/docker
-    args: ["build", "-f", "tools/preview_container/Dockerfile", "-t", "gcr.io/$PROJECT_ID/site-preview:$SHORT_SHA", "."]
+    args: [
+      "build", "-f", "tools/preview_container/Dockerfile", 
+      "-t", "gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA", "."
+      ]
   - name: gcr.io/cloud-builders/docker
-    args: ["push","gcr.io/$PROJECT_ID/site-preview:$SHORT_SHA"]
+    args: ["push","gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA"]
+
 
   # deploy to Cloud Run
-  - name: gcr.io/cloud-builders/gcloud
-    entrypoint: bash
-    args: 
-      - "-c"
-      - |
-        gcloud beta run deploy stanke-dev-preview-$SHORT_SHA --image=gcr.io/stanke-dev/site-preview:$SHORT_SHA --platform=managed --region=us-central1 --allow-unauthenticated
-        echo $(gcloud beta run services describe stanke-dev-preview-$SHORT_SHA --platform=managed --region=us-central1 --format="value(status.address.url)") > /workspace/url.txt
+  - name: gcr.io/cloud-builders/gcloud@sha256:3971d22114ad25262ee04e9161020c5145cc8eb65f710f3cc22d0f4b47a78984
+    entrypoint: gcloud
+    args: [
+      'alpha', 'run', 'deploy', 'preview-stanke-dev',
+      '--image=gcr.io/stanke-dev/stanke-dev:commit$SHORT_SHA',
+      '--region', 'us-central1',
+      '--platform', 'managed',
+      '--allow-unauthenticated',
+      '--tag=commit$SHORT_SHA',
+      '--no-traffic',
+      '--quiet'
+    ]
 
-  # demonstrate the pr-commenter
-  # - name: gcr.io/$PROJECT_ID/pr-commenter
-  #   args: [
-  #     "davidstanke/stanke.dev",
-  #     "$_PR_NUMBER",
-  #     "This is a static comment to demonstrate simple invocation of the PR builder."
-  #   ]
-  #   secretEnv: 
-  #     - GITHUB_TOKEN
-
-  # add preview URL as a comment on Pull Request    
-  - name: gcr.io/$PROJECT_ID/pr-commenter
-    entrypoint: bash
-    args:
-      - '-c' # execute the following in a bash shell
-      - |-
-        /bin/pr_comment_post.sh \
-        davidstanke/stanke.dev \
-        $_PR_NUMBER \
-        "Preview this revision: $(cat /workspace/url.txt)"
-
-    secretEnv:
-      - GITHUB_TOKEN
-      
-
-  # # add preview URL as a comment on Pull Request
-  # - name: gcr.io/cloud-builders/curl
-  #   entrypoint: bash
-  #   args: 
-  #     - "-c"
-  #     - |
-  #       echo "{\"body\": \"Preview this revision: $(cat /workspace/url.txt)\"}" > /workspace/api_payload.txt && \
-  #       curl -s -H "Authorization: token $$GITHUB_TOKEN" -X POST -d @/workspace/api_payload.txt "https://api.github.com/repos/davidstanke/stanke.dev/issues/$_PR_NUMBER/comments"
-
-  #   secretEnv: 
-  #     - GITHUB_TOKEN
-
-secrets:
-  - kmsKeyName: projects/stanke-dev/locations/global/keyRings/stanke-dev/cryptoKeys/github-access-token
-    secretEnv: 
-      GITHUB_TOKEN: "\
-      CiQApWZD3glqQqWrQokId3TuRrWfBMPTtu/B1ccsr+VKlAvFJGQSUQBLWP5TLHS\
-      hG81/eGy20mkRBMYv/HBBlrAl+hCInE4UMXDerAFDBAUlV4gvt/32Idi1spAk/T8\
-      PW8nsu8q946j7+9sP5mJo7ZBTauLmKYLLeg=="
+  # add preview URL as a status check
+  - name: 'gcr.io/${PROJECT_ID}/pr-status-poster'
+    args: [
+      '--project-id', '${PROJECT_ID}', 
+      '--repo-name', 'davidstanke/${REPO_NAME}',
+      '--commit-sha', '${COMMIT_SHA}',
+      '--target-url', 'https://commit$SHORT_SHA---preview-stanke-dev-t63odkzjiq-uc.a.run.app'
+    ]
