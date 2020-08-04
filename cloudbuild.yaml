@@ -6,9 +6,6 @@ steps:
       ]
 
  # create a docker container that can run on cloud run
- # TODO: skip this step if container already exists
- # (which it *should*, because it should have been built as part of CI for PRs,
- # but if an admin skips PR, then it will need to be built fresh)
   - name: gcr.io/cloud-builders/docker
     args: ["build", "-f", "tools/preview_container/Dockerfile", "-t", "gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA", "."]
   - name: gcr.io/cloud-builders/docker
