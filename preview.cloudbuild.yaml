@@ -19,7 +19,7 @@ steps:
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk:309.0.0-slim
     entrypoint: gcloud
     args: [
-      'alpha', 'run', 'deploy', 'preview-stanke-dev',
+      'alpha', 'run', 'deploy', 'stanke-dev',
       '--image=gcr.io/stanke-dev/stanke-dev:commit$SHORT_SHA',
       '--region', 'us-central1',
       '--platform', 'managed',
@@ -35,5 +35,5 @@ steps:
       '--project-id', '${PROJECT_ID}', 
       '--repo-name', 'davidstanke/${REPO_NAME}',
       '--commit-sha', '${COMMIT_SHA}',
-      '--target-url', 'https://commit$SHORT_SHA---preview-stanke-dev-t63odkzjiq-uc.a.run.app'
+      '--target-url', 'https://commit$SHORT_SHA---stanke-dev-t63odkzjiq-uc.a.run.app'
     ]
