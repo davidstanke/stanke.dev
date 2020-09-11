@@ -32,6 +32,5 @@ steps:
       '--region', 'us-central1',
       '--to-tags','commit$SHORT_SHA=100',
       '--platform', 'managed',
-      '--allow-unauthenticated',
       '--quiet'
     ]
