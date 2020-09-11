@@ -15,7 +15,7 @@ steps:
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk:305.0.0
     entrypoint: gcloud
     args: [
-    'run', 'deploy', 'stanke-dev-new', 
+    'run', 'deploy', 'stanke-dev', 
     '--image', 'gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA', 
     '--region', 'us-central1',
     '--platform', 'managed',
