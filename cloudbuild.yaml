@@ -12,10 +12,10 @@ steps:
     args: ["push","gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA"]
 
   # deploy to Cloud Run
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:305.0.0
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:309.0.0-slim
     entrypoint: gcloud
     args: [
-    'run', 'deploy', 'stanke-dev', 
+    'alpha', 'run', 'deploy', 'stanke-dev', 
     '--image', 'gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA', 
     '--region', 'us-central1',
     '--platform', 'managed',
@@ -25,7 +25,7 @@ steps:
     ]
 
   # route traffic to new revision
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:305.0.0
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:309.0.0-slim
     entrypoint: gcloud
     args: [
       'alpha', 'run', 'services', 'update-traffic', 'stanke-dev',
