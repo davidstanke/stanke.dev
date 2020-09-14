@@ -3,11 +3,13 @@
       <header>
         <a class="title" href="{{.Site.BaseURL}}{{.Section}}">talks ></a>
         <h1>{{ .Title }}</h1>
+        {{ if .Params.Subtitle }}<h4>{{ .Params.Subtitle }}</h4>{{ end }}
       </header>
   
-      <span class="duration">{{ .Params.Duration }} min</span>
+      {{ if .Params.Duration }}<span class="duration">{{ .Params.Duration }} min</span>{{ end }}
       {{ .Params.Abstract }}
-      <iframe class="youtube" src="https://www.youtube.com/embed/{{.Params.Youtube}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+      {{ if .Params.Youtube }}<iframe class="youtube" src="https://www.youtube.com/embed/{{.Params.Youtube}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{{ end }}
+      {{ if .Params.Slides }} <a href="{{ .Params.Slides }}" class="slides" target="_blank">Slides</a> {{ end }}
+      {{ .Content }}
     </article>
   </section>

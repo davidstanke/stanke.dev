@@ -12,10 +12,9 @@
       {{ range .Paginator.Pages }}
       <li class="talk">
         <a class="title" href="{{ .Params.ExternalLink | default .RelPermalink }}">{{ .Title }}</a>
-        [{{ .Params.Duration }}m] {{ .Params.Abstract | truncate 150 }} [<a href="{{ .Params.ExternalLink | default .RelPermalink }}">more</a>]
+        {{ if .Params.Duration }}[{{ .Params.Duration }}m] {{ end }}{{ .Params.Abstract | truncate 150 }} [<a href="{{ .Params.ExternalLink | default .RelPermalink }}">more</a>]
       </li>
       {{ end }}
     </ul>
     {{ partial "pagination.html" . }}
   </section>
-  
