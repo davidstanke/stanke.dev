@@ -1,0 +1,21 @@
+<section class="container list">
+    <h1 class="title">
+      {{- if eq .Kind "taxonomy" -}}
+        {{- i18n .Data.Singular | title -}}
+        {{- print ": " -}}
+      {{- end -}}
+  
+      {{- .Title -}}
+    </h1>
+    <h5>{{.Params.description}}</h5>
+    <ul>
+      {{ range .Paginator.Pages }}
+      <li class="talk">
+        <a class="title" href="{{ .Params.ExternalLink | default .RelPermalink }}">{{ .Title }}</a>
+        [{{ .Params.Duration }}m] {{ .Params.Abstract | truncate 150 }} [<a href="{{ .Params.ExternalLink | default .RelPermalink }}">more</a>]
+      </li>
+      {{ end }}
+    </ul>
+    {{ partial "pagination.html" . }}
+  </section>
+  

@@ -34,3 +34,27 @@ a.navigation-title {
     margin-top:12rem;
     margin-bottom:6rem;
 }
+
+li.talk {
+    
+    font-size:1.5rem !important;
+    line-height:2rem;
+    
+    a.title {
+        display:block;
+    }
+}
+
+.talk {
+    .youtube {
+        margin-top:3rem;
+        display:block;
+        width:80rem;
+        height:48rem;
+    }
+
+    .duration {
+        display:block;
+        font-weight:bold;
+    }
+}
