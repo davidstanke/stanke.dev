@@ -1,0 +1,13 @@
+<section class="container page talk">
+    <article>
+      <header>
+        <a class="title" href="{{.Site.BaseURL}}{{.Section}}">talks ></a>
+        <h1>{{ .Title }}</h1>
+      </header>
+  
+      <span class="duration">{{ .Params.Duration }} min</span>
+      {{ .Params.Abstract }}
+      <iframe class="youtube" src="https://www.youtube.com/embed/QPckponuxAs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </article>
+  </section>

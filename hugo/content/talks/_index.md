@@ -1,7 +1,5 @@
 ---
 title: "Dave Stanke: Talks/Presentations"
+description: "These are some talks I've given, or would like to give:"
 draft: false
-layout: single
 ---
-
-_TODO: This page will list talks I've given, or would like to give. Come back ~real~ soon and it might exist then!_
