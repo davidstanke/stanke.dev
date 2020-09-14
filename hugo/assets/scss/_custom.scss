@@ -45,7 +45,18 @@ li.talk {
     }
 }
 
-.talk {
+.talklist {
+    .talk {
+        margin-bottom:2rem;
+        line-height:2.5rem;
+    }
+}
+
+.talkdetail {
+    h4 {
+        margin-top:1rem;
+    }
+    
     .youtube {
         margin-top:3rem;
         display:block;
@@ -56,5 +67,10 @@ li.talk {
     .duration {
         display:block;
         font-weight:bold;
+    }
+
+    a.slides {
+        display:block;
+        margin-top:2rem;
     }
 }
