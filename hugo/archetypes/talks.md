@@ -1,6 +1,7 @@
 ---
 Title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+Subtitle: ""
+date: 
 Abstract: ""
 Youtube: ""
 Slides: ""
