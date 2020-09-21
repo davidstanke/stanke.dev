@@ -18,7 +18,7 @@ Requires [hugo](gohugo.io) in your PATH.
 * Build and push these builders to GCR:
   * /tools/hugo-builder
   * /tools/pr-status-poster
-* Save your GitHub token to a GCP Secrets Manager secret named `github_token`
+* Save your GitHub token to a [GCP Secret Manager](https://cloud.google.com/secret-manager) secret named `github_token`
   * `gcloud secrets create github_token --replication-policy automatic` 
   * `echo -n "${GITHUB_TOKEN}" | gcloud secrets versions add github_token --data-file=-`
 * Grant Cloud Build access to the token:
