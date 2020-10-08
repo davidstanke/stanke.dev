@@ -15,7 +15,7 @@ steps:
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk:309.0.0-slim
     entrypoint: gcloud
     args: [
-    'alpha', 'run', 'deploy', 'stanke-dev', 
+    'alpha', 'run', 'deploy', '$_CLOUD_RUN_TARGET_SVC', 
     '--image', 'gcr.io/$PROJECT_ID/stanke-dev:commit$SHORT_SHA', 
     '--region', 'us-central1',
     '--platform', 'managed',
@@ -28,9 +28,12 @@ steps:
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk:309.0.0-slim
     entrypoint: gcloud
     args: [
-      'alpha', 'run', 'services', 'update-traffic', 'stanke-dev',
+      'alpha', 'run', 'services', 'update-traffic', '$_CLOUD_RUN_TARGET_SVC',
       '--region', 'us-central1',
       '--to-tags','commit$SHORT_SHA=100',
       '--platform', 'managed',
       '--quiet'
     ]
+    
+substitutions:
+  _CLOUD_RUN_TARGET_SVC: staging-stanke-dev # for safety, default to deploy to staging
