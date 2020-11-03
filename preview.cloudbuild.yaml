@@ -16,7 +16,7 @@ steps:
 
 
   # deploy to Cloud Run
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:309.0.0-slim
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:317.0.0-slim
     entrypoint: gcloud
     args: [
       'alpha', 'run', 'deploy', 'stanke-dev',
@@ -30,10 +30,27 @@ steps:
     ]
 
   # add preview URL as a status check
-  - name: 'gcr.io/${PROJECT_ID}/pr-status-poster'
+  # - name: 'gcr.io/${PROJECT_ID}/pr-status-poster'
+  #   args: [
+  #     '--project-id', '${PROJECT_ID}', 
+  #     '--repo-name', 'davidstanke/${REPO_NAME}',
+  #     '--commit-sha', '${COMMIT_SHA}',
+  #     '--target-url', 'https://commit$SHORT_SHA---stanke-dev-t63odkzjiq-uc.a.run.app'
+  #   ]
+
+  - name: 'gcr.io/${PROJECT_ID}/gh'
     args: [
-      '--project-id', '${PROJECT_ID}', 
-      '--repo-name', 'davidstanke/${REPO_NAME}',
-      '--commit-sha', '${COMMIT_SHA}',
-      '--target-url', 'https://commit$SHORT_SHA---stanke-dev-t63odkzjiq-uc.a.run.app'
+      'api',
+      'repos/davidstanke/${REPO_NAME}/statuses/${COMMIT_SHA}',
+      '-F', 'state=success',
+      '-F', 'target_url=https://commit$SHORT_SHA---stanke-dev-t63odkzjiq-uc.a.run.app',
+      '-F', 'context=Cloud Build',
+      '-F', 'description=Preview Available'
     ]
+    env: "GITHUB_TOKEN=$GITHUB_TOKEN"
+    secretEnv: "GITHUB_TOKEN"
+
+availableSecrets:
+  secretManager:
+  - versionName: 'projects/${PROJECT_ID}/secrets/github_token/version/6'
+    env: 'GITHUB_TOKEN'
