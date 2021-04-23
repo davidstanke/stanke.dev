@@ -3,7 +3,7 @@ title: "Dave Stanke likes to talk DevOps"
 draft: false
 ---
 
-I'm Dave Stanke. 
+I'm Dave. Mister Stanke if you're nasty.
 
 I'm a Developer Relations Engineer at Google Cloud Platform.
 
