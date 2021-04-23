@@ -1,3 +1,2 @@
 /example/ http://example.com/
 /schedule/ https://calendar.google.com/calendar/embed?src=davidstanke%40google.com
-/favoritecustomer/ http://synack.com/
