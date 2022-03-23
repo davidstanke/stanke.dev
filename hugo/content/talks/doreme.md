@@ -7,3 +7,4 @@ Slides: "https://www.usenix.org/system/files/sre22amer_slides_stanke.pdf"
 Duration: "30"
 draft: false
 ---
+[![DO, RE, Me](/img/doreme.png)](https://www.usenix.org/conference/srecon22americas/presentation/stanke)
