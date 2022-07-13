@@ -1,4 +1,3 @@
 /example/ http://example.com/
-/schedule/ https://calendar.google.com/calendar/embed?src=davidstanke%40google.com
 /howidev/ https://docs.google.com/document/d/1o_sPsve_NTRBUYsXxeGe_K7dzhHPl56UuKmiQ8qiPQY/edit?resourcekey=0-uTLT0-qvRuKw9wi4UjNIag
 /booktime/ https://calendar.google.com/calendar/appointments/schedules/AcZssZ2MZ7yuXDoU01VTgczg7CiREvWjB523upF_3brvyjHzN9-Qs8RHJvz7dwww6Jk-B4kJxcu6oBrw
