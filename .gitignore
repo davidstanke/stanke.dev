@@ -1,12 +1,2 @@
-# macOS mishegas
-.DS_Store
-
-# ignore generated hugo files
-public/*
-/hugo/public/*
-
-# ignore firebase working dir
-.firebase/*
-
-# ignore tmp directory
-/tmp
+public*
+resources*
