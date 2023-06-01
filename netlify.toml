@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/howidev"
+  to = "https://docs.google.com/document/d/1o_sPsve_NTRBUYsXxeGe_K7dzhHPl56UuKmiQ8qiPQY/edit?resourcekey=0-uTLT0-qvRuKw9wi4UjNIag"
+  status = 302
+
+[[redirects]]
+  from = "/booktime"
+  to = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2MZ7yuXDoU01VTgczg7CiREvWjB523upF_3brvyjHzN9-Qs8RHJvz7dwww6Jk-B4kJxcu6oBrw"
+  status = 302
