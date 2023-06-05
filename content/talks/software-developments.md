@@ -6,5 +6,5 @@ Abstract: "The craft of software development is something that everyone can cont
 Slides: "/pdf/2023-04-24_DevOpsDaysRox_Software-Developments_New-Insights-and-Surprises-from-DORA-Research.pdf"
 Duration: "30"
 draft: false
+Youtube: "JL-4ptF5_bs"
 ---
- (video coming soon)
