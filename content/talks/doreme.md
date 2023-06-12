@@ -6,5 +6,5 @@ Abstract: "The DevOps Research and Assessment group, or DORA, has conducted broa
 Slides: "https://www.usenix.org/system/files/sre22amer_slides_stanke.pdf"
 Duration: "30"
 draft: false
+youtube: "7_uoAZsM7P4"
 ---
-[![DO, RE, Me](/img/doreme.png)](https://www.usenix.org/conference/srecon22americas/presentation/stanke)
