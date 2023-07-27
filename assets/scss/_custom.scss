@@ -1,5 +1,11 @@
 @import url('https://rsms.me/inter/inter.css');
 
+blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 1rem;
+    margin-inline-start: 1em;
+}
+
 h1.greeting {
     font-weight:700;
     font-size:9rem;
