@@ -1,14 +1,19 @@
 title = "Dave Stanke"
 theme = "hugo-coder"
-languagecode = "en"
+locale = "en"
 defaultcontentlanguage = "en"
 
-paginate = 20
-canonifyurls = true
+canonifyURLs = true
 
-pygmentsstyle = "bw"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
+[pagination]
+  pagerSize = 20
+
+[markup]
+  [markup.highlight]
+    style = "bw"
+    codeFences = true
+    guessSyntax = true
+
 
 # disqusShortname = "yourdiscussshortname"
 
