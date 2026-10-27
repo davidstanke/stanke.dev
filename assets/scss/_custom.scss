@@ -80,3 +80,76 @@ li.talk {
         margin-top:2rem;
     }
 }
+
+.agy-labs {
+    .agy-labs-subtitle {
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+        color: #5c636a;
+        margin-top: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .agy-labs-list {
+        list-style: none;
+        padding: 0;
+        margin: 3.2rem 0;
+    }
+
+    .agy-lab-item {
+        margin-bottom: 3.2rem;
+    }
+
+    .agy-lab-badge-row {
+        margin-bottom: 0.4rem;
+        line-height: 1;
+    }
+
+    .agy-lab-badge {
+        display: inline-block;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.8rem;
+        border-radius: 999px;
+        line-height: 1.4;
+
+        &.level-100 {
+            background-color: #e6f4ea;
+            color: #137333;
+        }
+
+        &.level-200 {
+            background-color: #e8f0fe;
+            color: #1967d2;
+        }
+
+        &.level-300 {
+            background-color: #f3e8fd;
+            color: #7627bb;
+        }
+    }
+
+    .agy-lab-title {
+        display: inline-block;
+        font-family: $heading-font-family;
+        font-size: 2.2rem;
+        font-weight: 700;
+        line-height: 2.8rem;
+        color: $link-color;
+        margin-bottom: 0.4rem;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+
+    .agy-lab-description {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        margin: 0;
+        color: $fg-color;
+    }
+}

@@ -1,0 +1,29 @@
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  <section class="container page agy-labs">
+    <article>
+      <header>
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.description }}
+          <p class="agy-labs-subtitle">{{ . }}</p>
+        {{ end }}
+      </header>
+
+      {{ .Content }}
+
+      <ul class="agy-labs-list">
+        {{ range .Params.labs }}
+          <li class="agy-lab-item">
+            <div class="agy-lab-badge-row">
+              <span class="agy-lab-badge level-{{ .level }}">L{{ .level }}</span>
+            </div>
+            <a class="agy-lab-title" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+            <p class="agy-lab-description">{{ .description }}</p>
+          </li>
+        {{ end }}
+      </ul>
+    </article>
+  </section>
+{{ end }}
