@@ -5,6 +5,10 @@ draft: false
 layout: single
 labs:
   - level: "100"
+    title: "Getting Started with Google Antigravity"
+    url: "https://codelabs.developers.google.com/getting-started-google-antigravity"
+    description: "Install and explore the core features of Google Antigravity, an agent-first platform for collaborating with agents on both coding and non-coding tasks."
+  - level: "100"
     title: "Beyond vibe coding for the web"
     url: "https://codelabs.developers.google.com/codelabs/beyond-vibe-coding-for-the-web"
     description: "Move past zero-shot prompts with a structured 4-step product development lifecycle to guide coding agents, verify live browser behavior, and avoid technical debt."
@@ -12,6 +16,10 @@ labs:
     title: "Hands-on with Antigravity CLI"
     url: "https://codelabs.developers.google.com/antigravity-cli-hands-on"
     description: "Get started with the Antigravity CLI through practical exercises covering installation, core capabilities, and everyday agentic coding workflows."
+  - level: "200"
+    title: "Authoring Google Antigravity Skills"
+    url: "https://codelabs.developers.google.com/getting-started-with-antigravity-skills"
+    description: "Extend AI agent capabilities with specialized knowledge and reusable workflows by authoring and using custom Agent Skills in Google Antigravity."
   - level: "200"
     title: "Secure an app using Google Cloud Developer plugin in Antigravity"
     url: "https://codelabs.developers.google.com/secure-app-cloud-dev-plugin-agy"
@@ -56,4 +64,8 @@ labs:
     title: "Design-to-Code with Antigravity and Stitch MCP"
     url: "https://codelabs.developers.google.com/design-to-code-with-antigravity-stitch"
     description: "Bridge AI UI design and autonomous coding by generating high-fidelity designs in Google Stitch and implementing a production React site via Stitch MCP in Antigravity."
+  - level: "300"
+    title: "How to deploy a secure MCP server on Cloud Run"
+    url: "https://codelabs.developers.google.com/codelabs/cloud-run/how-to-deploy-a-secure-mcp-server-on-cloud-run"
+    description: "Build and deploy a secure Model Context Protocol (MCP) server on Cloud Run, then authenticate and invoke its remote tools and prompts from Antigravity CLI."
 ---
